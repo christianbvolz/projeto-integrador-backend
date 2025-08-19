@@ -1,0 +1,21 @@
+services:
+  db:
+    container_name: estoque-db
+    image: mysql:9.1.0
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+
+volumes:
+  mysql:
