@@ -15,7 +15,7 @@ const supplierSchema = vine
   })
   .allowUnknownProperties()
 
-export const StoreSuppliersValidator = vine.compile(supplierSchema)
+export const StoreSupplierValidator = vine.compile(supplierSchema)
 
 export const showOrDeleteSupplierValidator = vine.compile(
   vine.object({
@@ -25,7 +25,7 @@ export const showOrDeleteSupplierValidator = vine.compile(
   })
 )
 
-export const upadateSupplierValidator = vine.compile(
+export const updateSupplierValidator = vine.compile(
   vine.object({
     params: vine.object({
       supplierId: vine.number().min(1).withoutDecimals(),

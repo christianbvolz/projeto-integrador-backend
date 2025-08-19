@@ -1,8 +1,8 @@
 import Supplier from '#models/supplier'
 import {
   showOrDeleteSupplierValidator,
-  StoreSuppliersValidator,
-  upadateSupplierValidator,
+  StoreSupplierValidator,
+  updateSupplierValidator,
 } from '#validators/supplier'
 import { StatusCodes } from 'http-status-codes'
 import type { HttpContext } from '@adonisjs/core/http'
@@ -22,7 +22,7 @@ export default class SuppliersController {
    */
   async store({ request, response }: HttpContext) {
     const { companyName, cnpj, address, phone, email, mainContact } =
-      await request.validateUsing(StoreSuppliersValidator)
+      await request.validateUsing(StoreSupplierValidator)
 
     const verifySupplier = await Supplier.findBy('cnpj', cnpj)
 
@@ -73,7 +73,7 @@ export default class SuppliersController {
       phone,
       email,
       mainContact,
-    } = await request.validateUsing(upadateSupplierValidator)
+    } = await request.validateUsing(updateSupplierValidator)
 
     const supplier = await Supplier.find(supplierId)
 
