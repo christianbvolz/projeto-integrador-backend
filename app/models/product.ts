@@ -5,6 +5,27 @@ export default class Product extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
+  @column()
+  declare name: string
+
+  @column()
+  declare barcode: string
+
+  @column()
+  declare description: string
+
+  @column()
+  declare quantity: number
+
+  @column()
+  declare category: string
+
+  @column()
+  declare expirationDate: DateTime | null
+
+  @column()
+  declare imageUrl: string
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

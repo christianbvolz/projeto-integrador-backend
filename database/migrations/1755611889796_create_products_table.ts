@@ -11,7 +11,7 @@ export default class extends BaseSchema {
       table.text('description').notNullable()
       table.integer('quantity').notNullable().defaultTo(0)
       table.string('category', 254).notNullable()
-      table.date('expiration_date').nullable()
+      table.datetime('expiration_date').nullable()
       table.string('image_url').nullable()
       table.timestamp('created_at')
       table.timestamp('updated_at')
